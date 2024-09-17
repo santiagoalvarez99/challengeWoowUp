@@ -7,7 +7,7 @@ export class AlertaFactory {
     mensaje: string,
     tipo: TipoAlerta,
     expira: Date,
-    tema: ITema
+    tema: ITema[]
   ): Alerta {
     switch (tipo) {
       case TipoAlerta.Urgente:

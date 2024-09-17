@@ -77,7 +77,7 @@ function testEnviarAlertaATodos() {
     "Nueva noticia",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() + 100000),
-    temaNoticias
+    [temaNoticias]
   );
 
   sistema.enviarAlertaATodos(temaNoticias, alertaNoticias);
@@ -108,7 +108,7 @@ function testEnviarAlertaAUsuario() {
     "Alerta personalizada",
     TipoAlerta.Urgente,
     new Date(new Date().getTime() + 100000),
-    temaNoticias
+    [temaNoticias]
   );
   sistema.enviarAlertaAUsuario(usuario1, alerta1);
 
@@ -131,7 +131,7 @@ function testMarcarAlertaComoLeida() {
     "Nueva noticia",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() + 100000),
-    temaNoticias
+    [temaNoticias]
   );
   sistema.enviarAlertaAUsuario(usuario1, alerta1);
 
@@ -155,14 +155,14 @@ function testAlertasNoExpiradas() {
     "Alerta expirada",
     TipoAlerta.Informativa,
     new Date(Date.now() - 10000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
   const alertaValida = AlertaFactory.crearAlerta(
     2,
     "Alerta válida",
     TipoAlerta.Urgente,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
 
   sistema.enviarAlertaAUsuario(usuario1, alertaExpirada);
@@ -191,28 +191,28 @@ function testOrdenamientoAlertas() {
     "Alerta informativa 1",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
   const alerta2 = AlertaFactory.crearAlerta(
     2,
     "Alerta urgente 1",
     TipoAlerta.Urgente,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
   const alerta3 = AlertaFactory.crearAlerta(
     3,
     "Alerta informativa 2",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
   const alerta4 = AlertaFactory.crearAlerta(
     4,
     "Alerta urgente 2",
     TipoAlerta.Urgente,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
 
   sistema.enviarAlertaAUsuario(usuario1, alerta1);
@@ -244,7 +244,7 @@ function testAlertaExpirada() {
     "Alerta expirada",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() - 100000), // Fecha de expiración en el pasado
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
 
   sistema.enviarAlertaAUsuario(usuario1, alertaExpirada);
@@ -268,14 +268,14 @@ function testMarcarMultiplesAlertasLeidas() {
     "Alerta 1",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
   const alerta2 = AlertaFactory.crearAlerta(
     2,
     "Alerta 2",
     TipoAlerta.Informativa,
     new Date(new Date().getTime() + 100000),
-    new Tema(1, "Noticias")
+    [new Tema(1, "Noticias")]
   );
 
   sistema.enviarAlertaAUsuario(usuario1, alerta1);

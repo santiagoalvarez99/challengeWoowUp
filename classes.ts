@@ -10,7 +10,7 @@ export class Alerta implements IAlerta {
     public tipo: TipoAlerta,
     public expira: Date,
     public leida: boolean = false,
-    public tema: ITema
+    public tema: ITema[]
   ) {}
 
   estaExpirada(): boolean {
@@ -92,7 +92,9 @@ export class SistemaAlertas {
   obtenerAlertasPorTema(tema: Tema): IAlerta[] {
     return this.alertas.filter((alerta) =>
       this.usuarios.some(
-        (u) => u.temasSeguidos.includes(tema) && alerta.tema === tema
+        (u) =>
+          u.temasSeguidos.includes(tema) &&
+          alerta.tema.find((at) => at === tema)
       )
     );
   }

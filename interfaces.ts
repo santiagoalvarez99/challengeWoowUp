@@ -9,7 +9,7 @@ export interface IAlerta {
   tipo: TipoAlerta;
   expira: Date;
   leida: boolean;
-  tema: ITema;
+  tema: ITema[];
   estaExpirada(): boolean;
 }
 
