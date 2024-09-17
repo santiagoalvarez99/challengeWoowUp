@@ -77,7 +77,7 @@ Este archivo contiene la configuración del compilador de TypeScript, especifica
 
 ## Diagrama UML
 
-El archivo `alert_system_uml.mmd` contiene un diagrama de clases UML que representa visualmente la estructura del sistema. Puedes visualizarlo directamente en GitHub o usando cualquier herramienta que soporte diagramas Mermaid.
+El archivo `sistema-de-alertas-uml.mermaid` contiene un diagrama de clases UML que representa visualmente la estructura del sistema. Puedes visualizarlo directamente en GitHub o usando cualquier herramienta que soporte diagramas Mermaid.
 
 ## Cómo Ejecutar
 
