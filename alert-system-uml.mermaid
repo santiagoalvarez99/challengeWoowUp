@@ -1,0 +1,81 @@
+classDiagram
+    class IAlerta {
+        <<interface>>
+        +id: number
+        +mensaje: string
+        +tipo: TipoAlerta
+        +expira: Date
+        +leida: boolean
+        +tema: ITema
+        +estaExpirada(): boolean
+    }
+    class ITema {
+        <<interface>>
+        +id: number
+        +nombre: string
+    }
+    class IUsuario {
+        <<interface>>
+        +temasSeguidos: ITema[]
+        +id: number
+        +nombre: string
+        +sigueTema(tema: ITema): boolean
+        +recibirAlerta(alerta: IAlerta): void
+        +obtenerAlertasNoLeidas(): IAlerta[]
+        +marcarAlertaLeida(idAlerta: number): void
+    }
+    class Alerta {
+        +id: number
+        +mensaje: string
+        +tipo: TipoAlerta
+        +expira: Date
+        +leida: boolean
+        +tema: ITema
+        +estaExpirada(): boolean
+    }
+    class Tema {
+        +id: number
+        +nombre: string
+    }
+    class Usuario {
+        -alertas: IAlerta[]
+        +temasSeguidos: ITema[]
+        +id: number
+        +nombre: string
+        +sigueTema(tema: ITema): boolean
+        +recibirAlerta(alerta: IAlerta): void
+        +obtenerAlertasNoLeidas(): IAlerta[]
+        +marcarAlertaLeida(idAlerta: number): void
+    }
+    class SistemaAlertas {
+        -usuarios: IUsuario[]
+        -alertas: IAlerta[]
+        -temas: Map<number, TemaSubject>
+        +registrarUsuario(usuario: IUsuario): void
+        +registrarTema(tema: ITema): void
+        +suscribirUsuarioATema(usuario: IUsuario, tema: ITema): void
+        +enviarAlertaATodos(tema: ITema, alerta: IAlerta): void
+        +enviarAlertaAUsuario(usuario: IUsuario, alerta: IAlerta): void
+        +obtenerAlertasPorTema(tema: Tema): IAlerta[]
+    }
+    class TemaSubject {
+        +agregarObservador(usuario: IUsuario): void
+        +notificar(alerta: IAlerta): void
+    }
+    class EstrategiaInformativa {
+        +ordenar(alertas: IAlerta[]): IAlerta[]
+    }
+    class EstrategiaUrgente {
+        +ordenar(alertas: IAlerta[]): IAlerta[]
+    }
+    
+    IAlerta <|.. Alerta
+    ITema <|.. Tema
+    IUsuario <|.. Usuario
+    Alerta "1" --> "1" Tema
+    Usuario "1" --> "*" Alerta
+    Usuario "1" --> "*" Tema
+    SistemaAlertas "1" --> "*" Usuario
+    SistemaAlertas "1" --> "*" Alerta
+    SistemaAlertas "1" --> "*" TemaSubject
+    TemaSubject "1" --> "*" Usuario

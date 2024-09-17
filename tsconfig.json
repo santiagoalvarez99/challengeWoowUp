@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2016", // O es6, es7, o es2020 dependiendo de las necesidades
+    "lib": ["es2016", "dom"], // Asegúrate de incluir "es2015" o una versión superior
+    "module": "commonjs", // O "esnext" si estás usando módulos ES
+    "strict": true, // Opcional: activa la verificación estricta
+    "esModuleInterop": true, // Asegura la compatibilidad con módulos CommonJS
+    "skipLibCheck": true, // Omitir verificación de tipos de archivos .d.ts
+    "forceConsistentCasingInFileNames": true, // Asegura consistencia en los nombres de archivos
+    "sourceMap": true // Habilita los mapas de origen para facilitar el debugging
+  }
+}
