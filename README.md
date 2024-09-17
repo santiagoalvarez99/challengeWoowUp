@@ -73,6 +73,7 @@ Este archivo contiene la configuración del compilador de TypeScript, especifica
 
 1. **Patrón Observador**: Implementado en `TemaSubject` para notificar a los usuarios sobre nuevas alertas.
 2. **Patrón Estrategia**: Utilizado para ordenar las alertas (`EstrategiaInformativa` y `EstrategiaUrgente`).
+3. **Patrón Factory**: Utilizado para crear las alertas, implementado en `AlertaFactory`.
 
 ## Diagrama UML
 
