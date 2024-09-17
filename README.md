@@ -84,9 +84,8 @@ El archivo `sistema-de-alertas-uml.mermaid` contiene un diagrama de clases UML q
 Este proyecto está implementado en TypeScript. Para ejecutarlo:
 
 1. Asegúrate de tener Node.js y npm instalados.
-2. Instala las dependencias con `npm install`.
-3. Compila el código TypeScript con `npx tsc`.
-4. Ejecuta el código compilado con Node.js.
+2. Compila el código TypeScript con `npx tsc`.
+3. Ejecuta el código compilado con Node.js.
 
 ### Ejecutar las Pruebas
 
